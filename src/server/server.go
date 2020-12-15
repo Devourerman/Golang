@@ -44,7 +44,7 @@ func (s *chatServiceServer) SendMessage(msgStream chatpb.ChatService_SendMessage
 		return err
 	}
 
-	ack := chatpb.MessageAck{Status: "Отправлено"}
+	ack := chatpb.MessageAck{Status: "Send"}
 	msgStream.SendAndClose(&ack)
 
 	go func() {
