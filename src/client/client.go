@@ -20,7 +20,7 @@ var tcpServer = flag.String("Сервер", ":1618", "Tcp server")
 func joinChannel(ctx context.Context, client chatpb.ChatServiceClient) {
 
 	channel := chatpb.Channel{Name: *channelName, SendersName: *senderName}
-	stream, err := client.JoinChannel(ctx, &channel)
+	stream, err := client.Connect(ctx, &channel)
 	if err != nil {
 		log.Fatalf("client.JoinChannel(ctx, &channel) throws: %v", err)
 	}

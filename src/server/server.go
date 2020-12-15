@@ -17,7 +17,7 @@ type chatServiceServer struct {
 	channel map[string][]chan *chatpb.Message
 }
 
-func (s *chatServiceServer) JoinChannel(ch *chatpb.Channel, msgStream chatpb.ChatService_JoinChannelServer) error {
+func (s *chatServiceServer) Connect(ch *chatpb.Channel, msgStream chatpb.ChatService_ConnectServer) error {
 
 	msgChannel := make(chan *chatpb.Message)
 	s.channel[ch.Name] = append(s.channel[ch.Name], msgChannel)

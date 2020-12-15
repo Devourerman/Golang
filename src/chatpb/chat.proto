@@ -5,7 +5,7 @@ option go_package = "./chatpb";
 package chatpb;
 
 service ChatService {
-    rpc JoinChannel(Channel) returns (stream Message) {}
+    rpc Connect(Channel) returns (stream Message) {}
     rpc SendMessage(stream Message) returns (MessageAck) {}
 }
 
